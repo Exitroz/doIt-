@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title%}Add Todo Item {% endblock %}
+{% block content %}
+    <div class="widget bdr-sen-color">
+        <div class="wiget-title">
+            <h4>Add Todo Task</h4>
+        </div>
+        <div class="wiget-title"style="color:red">
+            {% if errors %}
+                <ul>
+                    {% for error in errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        <div class="login-form">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Title</label>
+                    <input type="text" class="form-control" name="t" placeholder="Title">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Tasks</label>
+                    <input type="text" class="form-control" name="d" placeholder="Tasks Details">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Date</label>
+                    <input type="date" name="da" class="form-control" >
+                </div>
+                <button type="submit" class="btn btn-default">Add Task</button>
+            </form>
+            
+        </div>
+    </div>
+{% endblock %}
